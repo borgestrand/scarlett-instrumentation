@@ -45,7 +45,7 @@ Please use the following coding style:
 - All files start with GPL 3 header as Matlab commet
 - Preferable indentation is two space characters
 - Do *not* use Tab as indentation character since that will confuse Octave during copy-paste
-- Minimize inline if and for, rather use new line, indent and "end" on separate line
+- Minimize inline *if* and *for*, rather use new line, indent and "end" on separate line
 - UTF-8 encoding seems to work OK
 
 ## Functions
