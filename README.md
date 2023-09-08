@@ -1,4 +1,4 @@
-# carlett-instrumentation
+# scarlett-instrumentation
 Building low-frequency instrumentation tools around the [Focusrite Scarlett 2i2 3rd Gen](https://focusrite.com/products/scarlett-2i2-3rd-gen) and similar interfaces. 
 
 ## Introduction
