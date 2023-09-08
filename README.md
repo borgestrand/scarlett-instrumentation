@@ -48,9 +48,13 @@ Please use the following coding style:
 [input_id, output_id] = sc_identify_device(name);
 ```
 input_id = returned id of input device for use with Octave audio subsystem
+
 output_id = returned id of output device for use with Octave audio subsystem
+
 name = "2i2" to search for Focusrite Scarlett 2i2 device
+
 Status: Worked on Win10 / Octave 8.3.0, on Win11, returned output_id is off
+
 Example:
 ```
 >[input_id, output_id] = sc_identify_device("2i2")
@@ -63,14 +67,23 @@ output_id = 8
 sc_sine_generator(output_id, fs, resolution, freq_L, amplitude_L, freq_R, amplitude_R, duration)
 ```
 output_id = id of output device for use with Octave audio subsystem
+
 fs = sample rate in Hz, typically 96000. You may need to set this manually in your OS as well
+
 resolution = resolutin in bits. Use 24. ou may need to set this manually in your OS as well
+
 freq_L = the frequency in Hz to be used in the Left output channel, [0, fs/2)
+
 amplitude_L = the normalized amplitude for the Left channel, [0, 1)
+
 freq_R = the frequency in Hz to be used in the Right output channel, [0, fs/2)
+
 amplitude_R = the normalized amplitude for the Right channel, [0, 1)
+
 duration = the duration of the tone in seconds
+
 Status: Works on Win11 / Octave 8.3.0 with manually set output_id
+
 Example:
 ```
 sc_sine_generator(6, fs, resolution, 1000, 0.5, 500, 0.8, 5)
