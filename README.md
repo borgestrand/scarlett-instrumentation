@@ -22,7 +22,7 @@ Feel free to add notes about other verified software combinations.
 ## Projects
 
 ### Low-frequency impedance meter
-What is the impedance at a point of load? This project will inject a current (large voltage through large resistor) into the load and measure the resulting voltage. This will be swept or repeated at relevant frequencies. A long probe cable leads from the PCBA to the DUT. The impedance of the probe can be recorded and later subtracted by shorting it. Reference impedances on the PCBs can be selected by jumpers to verify the measurement principle before short at the tip of the probe is removed and replaced by the DUT. 
+What is the impedance at a point of load? This project will inject a current (large voltage through large resistor) into the load and measure the resulting voltage. This will be swept or repeated at relevant frequencies. A long probe cable leads from the PCBA to the DUT. The impedance of the probe can be recorded and later subtracted by shorting it. Reference resistors on the interface PCB can be selected by jumpers to verify the measurement principle before short at the tip of the probe is removed and replaced by the DUT. 
 
 Status: Under development, PCB ordered
 
@@ -30,20 +30,14 @@ PCB and schematic: "supply_AC_meas_C" to be released after initial test
 
 Code: TBD
 
-## Shared code
+## Common code
 This project uses two space characters for indentation. Do *not* use Tab as indentation character since that will confuse Octave during copy-paste.
 
 Identifying the USB devices. Tested on Octave 8.3.0 on Windows 10
 ```
 n_input = audiodevinfo(1)/2; % How many input devices are there
 n_output = audiodevinfo(0)/2; % How many output devices are there
-
-for n=0:n_input-1, audiodevinfo(1,n), end; % List the input devices
-for n=n_input:n_input+n_output-1, audiodevinfo(0,n), end; % List the output devices
-
-n_input = audiodevinfo(1)/2; % How many input devices are there
-n_output = audiodevinfo(0)/2; % How many output devices are there
-input_name = "2i2";
+input_name = "2i2"; % Which device are we looking for?
 output_name = "2i2";
 
 % Find the input device with "input_name"
