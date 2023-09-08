@@ -93,7 +93,7 @@ Status: Works on Win11 / Octave 8.3.0 with manually set output_id
 
 Example:
 ```
-sc_sine_generator(6, fs, resolution, 1000, 0.5, 500, 0.8, 5)
+sc_sine_generator(6, 96000, 24, 1000, 0.5, 500, 0.8, 5);
 ```
 
  
