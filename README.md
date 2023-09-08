@@ -2,7 +2,7 @@
 Building low-frequency instrumentation tools around the [Focusrite Scarlett 2i2 3rd Gen](https://focusrite.com/products/scarlett-2i2-3rd-gen) and similar interfaces. 
 
 ## Introduction
-The lack of low-frequency spectrum analyzers, vector network analyzers etc. prompted me to make my own. 
+The lack of low-frequency spectrum analyzers, vector network analyzers etc. prompted me to make my own. And it's always great when you can operate at orders of magnitude lower cost than what such instruments regularly go for!
 
 The Focusrite Scarlett 2i2 is a two-channel USB ADC + DAC designed to interface musical instruments. This project will primarily use it as a programmable line input and output device. 
 
