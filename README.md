@@ -12,8 +12,8 @@ Where the Scarlett 2i2 does not have the desired impedance, current or voltage f
 Initial code is written in [GNU Octave](https://octave.org) 8.3.0 running on Windows 11. One known bug is that the ADC input is truncated to 16 bits of resolution, not the desired 24. Initial efforts focus on identifying the audio device and analog volume settings for reading and writing audio data.
 
 ### Windows setup
-A
-
+- Audio
+- Settings...
 
 Feel free to add notes about other verified software combinations.
 
