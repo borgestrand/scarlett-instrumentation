@@ -17,6 +17,13 @@ Feel free to add notes about other verified software combinations.
 
 ### Low-frequency impedance meter
 What is the impedance at a point of load? This project will inject a current (large voltage through large resistor) into the load and measure the resulting voltage. This will be swept or repeated at relevant frequencies. A long probe cable leads from the PCBA to the DUT. The impedance of the probe can be recorded and later subtracted by shorting it. Reference impedances on the PCBs can be selected by jumpers to verify the measurement principle before short at the tip of the probe is removed and replaced by the DUT. 
+
 Status: Under development, PCB ordered
+
 PCB and schematic: "supply_AC_meas_C" to be released after initial test
+
 Code: TBD
+
+### TBD project
+
+
