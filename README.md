@@ -11,13 +11,18 @@ Where the Scarlett 2i2 does not have the desired impedance, current or voltage f
 Both code and PCBs are under GPL-3.0. If you contribute PCBs, include as the very least a PDF of the Schematic, Gerber files of the board and a human readable BOM. Please also include schematic and layout binaries.
 
 ## Code development and support
-Initial code is written in [GNU Octave](https://octave.org) 8.3.0 running on Windows 11. One known bug is that the ADC input is truncated to 16 bits of resolution, not the desired 24. Initial efforts focus on identifying the audio device and analog volume settings for reading and writing audio data.
+Initial code is written in [GNU Octave](https://octave.org) 8.3.0 running on Windows 11. It is already up and running! 
+
+### Known bugs:
+- Win10 / Octave 8.3.0: ADC input is truncated to 16 bits of resolution, not the desired 24. Not yet tested on Win11
+- Device identification worked on Win10 / Octave 8.3.0. It is a bit off on Win11 and needs manual override for now
 
 ### Windows setup
 - Sound Settings -> Output -> Scarlett 2i2 USB -> 2 channels, 24 bit, 96000 kHz, Volume = 100
 - Sound Settings -> Input -> Scarlett 2i2 USB -> 2 channels, 24 bit, 96000 Hz, Volume = 54 (= 0dB in Windows)
 
-Feel free to add notes about other verified software combinations.
+### Other OS / instrument / language combinations
+Feel free to add notes about other verified software combinations
 
 ## Projects
 
@@ -30,7 +35,9 @@ PCB and schematic: "supply_AC_meas_C" to be released after initial test
 
 Code: TBD
 
-## Code
+## Code style
+This project uses the free programming language GNU Octave. 
+
 Please use the following coding style:
 - One file for each function
 - Each file is named as its function
