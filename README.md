@@ -39,6 +39,7 @@ Please use the following coding style:
 - Preferable indentation is two space characters
 - Do *not* use Tab as indentation character since that will confuse Octave during copy-paste
 - Minimize inline if and for, rather use new line, indent and "end" on separate line
+- UTF-8 encoding seems to work OK
 
 ## Functions
 
