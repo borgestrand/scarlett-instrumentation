@@ -8,6 +8,8 @@ The Focusrite Scarlett 2i2 is a two-channel USB ADC + DAC designed to interface 
 
 Where the Scarlett 2i2 does not have the desired impedance, current or voltage for a given measurement purpose, small PCB will act as amplifiers between the Scarlett 2i2 and a Device Under Test (DUT). 
 
+Both code and PCBs are under GPL-3.0. If you contribute PCBs, include as the very least a PDF of the Schematic, Gerber files of the board and a human readable BOM. Please also include schematic and layout binaries.
+
 ## Code development and support
 Initial code is written in [GNU Octave](https://octave.org) 8.3.0 running on Windows 11. One known bug is that the ADC input is truncated to 16 bits of resolution, not the desired 24. Initial efforts focus on identifying the audio device and analog volume settings for reading and writing audio data.
 
