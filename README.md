@@ -30,33 +30,24 @@ PCB and schematic: "supply_AC_meas_C" to be released after initial test
 
 Code: TBD
 
-## Common code
-This project uses two space characters for indentation. Do *not* use Tab as indentation character since that will confuse Octave during copy-paste.
+## Code
+Please adhere to the following coding style:
+- One file for each function
+- Each file is named as its function
+- All function and file names are prefixed "sc_"
+- All files start with GPL 3 header as Matlab commet
+- Preferable indentation is two space characters
+- Do *not* use Tab as indentation character since that will confuse Octave during copy-paste.
 
-Identifying the USB devices. Tested on Octave 8.3.0 on Windows 10
-```
-n_input = audiodevinfo(1)/2; % How many input devices are there
-n_output = audiodevinfo(0)/2; % How many output devices are there
-input_name = "2i2"; % Which device are we looking for?
-output_name = "2i2";
+## Functions
 
-% Find the input device with "input_name"
-n_input_name = -1; % Initially mark as error
-for n=0:n_input-1
-  p = audiodevinfo(1,n);
-  if (length(strfind(p, input_name)) > 0)
-	n_input_name = n;
-  end
-end
+### Identify the ADC and DAC device
+Typical use:
+[input_id, output_id] = sc_identify_device("2i2");
+input_id = returned id of input device for use with Octave audio subsystem
+output_id = returned id of output device for use with Octave audio subsystem
+name = "2i2" to search for Focusrite Scarlett 2i2 device
 
-% Find the output device with "output_name"
-n_output_name = -1; % Initially mark as error
-for n=n_input:n_input+n_output-1
-  p = audiodevinfo(0,n);
-  if (length(strfind(p, output_name)) > 0)
-	n_output_name = n;
-  end
-end
-```
 
+ 
 
