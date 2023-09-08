@@ -21,7 +21,7 @@ Initial code is written in [GNU Octave](https://octave.org) 8.3.0 running on Win
 - Sound Settings -> Output -> Scarlett 2i2 USB -> 2 channels, 24 bit, 96000 kHz, Volume = 100
 - Sound Settings -> Input -> Scarlett 2i2 USB -> 2 channels, 24 bit, 96000 Hz, Volume = 54 (= 0dB in Windows)
 
-### Other OS / instrument / language combinations
+### Other OS / instrument / version combinations
 Feel free to add notes about other verified software combinations
 
 ## Projects
