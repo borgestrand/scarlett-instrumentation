@@ -40,6 +40,7 @@ Code: TBD
 - Signals are named Left and Right or 1 and 2. Left === 1 and Right === 2. We don't count from 0.
 - Corresponding variables should be postfixed "_L" or "_1" and "_R or "_2", respectively
 - Do not use postfixes "_L", "_1", "_R" and "_2" for other purposes
+- Do not use prefixes as signal and channel indicators
 
 ### Code style
 This project uses the programming language GNU Octave. Please use the following coding style:
