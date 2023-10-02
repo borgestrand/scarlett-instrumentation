@@ -90,6 +90,7 @@ Guides and helps you adjust three gain knobs to normalize DAC, ADC and analog vo
 defaults = sc_calibrate(defaults);
 ```
 defaults = global configuration variable
+
 Example:
 ```
 > sc_defaults = sc_calibrate(sc_defaults)
