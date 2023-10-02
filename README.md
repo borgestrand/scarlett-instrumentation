@@ -62,6 +62,7 @@ This project uses the programming language GNU Octave. Please use the following 
 ## Functions
 
 ### Initiate
+Set up global configuration variable according to your preferences and the detected device. You may have to set your preferences (particularly sample rate and resolution) in the operating system as well. 
 ```
 defaults = sc_init(fs, resolution, dac_util, dac_vrms, adc_util, adc_vrms);
 ```
@@ -75,9 +76,9 @@ dac_util = DAC utilization. Must be less than 1. Suggested level = 0.9
 
 dac_vrms = Differential normalized RMS voltage of DAC section. Influences gain control. Suggested 2.0
 
-adc_util = ADC utilization. Likely 0.5 triggers transition from green to orange light. Suggested: 0.45
+adc_util = ADC utilization. Likely 0.5 triggers transition from orange to red front light. Suggested: 0.45
 
-adc_vrms = Differential normalized RMS voltage of ADC section. Influences gain control. Suggested 2.0
+adc_vrms = Differential normalized RMS voltage of ADC section. Currently not in use. May influence future gain control. Suggested 2.0
 
 Example:
 ```
