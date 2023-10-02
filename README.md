@@ -81,7 +81,28 @@ adc_vrms = Differential normalized RMS voltage of ADC section. Influences gain c
 
 Example:
 ```
-sc_defaults = sc_init(96000, 24, 0.9, 2, 0.45, 2);
+> sc_defaults = sc_init(96000, 24, 0.9, 2, 0.45, 2);
+```
+
+### Calibrate
+Guides and helps you adjust three gain knobs to normalize DAC, ADC and analog voltages according to sc_init() parameters. The function will update a gain parameter to be applied to the right DAC output to give it the same gain as the left channel.
+```
+defaults = sc_calibrate(defaults);
+```
+defaults = global configuration variable
+Example:
+```
+> sc_defaults = sc_calibrate(sc_defaults)
+...
+fs = 96000
+resolution = 24
+dac_util = 0.9000
+dac_vrms = 2
+adc_util = 0.4500
+adc_vrms = 2
+input_id = 2
+output_id = 8
+rightgain = 0.9984  % Only this parameter was updated by the function
 ```
 
 ### Identify the ADC and DAC device
@@ -99,7 +120,7 @@ Status: Worked on Win10 / Octave 8.3.0, on Win11, returned output_id was off in 
 
 Example:
 ```
->[input_id, output_id] = sc_identify_device("2i2")
+> [input_id, output_id] = sc_identify_device("2i2")
 input_id = 1
 output_id = 8
 ```
@@ -125,7 +146,7 @@ Status: Works on Win11 / Octave 8.3.0 with manually set output_id
 
 Example:
 ```
-sc_sine_generator(sc_defaults, 1000, 0.5, 500, 0.8, 5);
+> sc_sine_generator(sc_defaults, 1000, 0.5, 500, 0.8, 5);
 ```
 
  
