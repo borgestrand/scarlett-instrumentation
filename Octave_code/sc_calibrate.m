@@ -161,7 +161,7 @@ function defaults = sc_calibrate(defaults)
 	data = getaudiodata(recorder, "double") / defaults.adc_util;
   endfor
 
-  defaults.rightgain = max(data(:,2));
+  defaults.gain_R = max(data(:,2));
 
   stop (player);
 

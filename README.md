@@ -59,7 +59,7 @@ This project uses the programming language GNU Octave. Please use the following 
 - Minimize inline *if* and *for*, rather use new line, indent and "end" on separate line
 - UTF-8 encoding seems to work OK
 
-## Functions
+## Octave functions
 
 ### Initiate
 Set up global configuration variable according to your preferences and the detected device. You may have to set your preferences (particularly sample rate and resolution) in the operating system as well. 
@@ -104,7 +104,7 @@ adc_util = 0.4500
 adc_vrms = 2
 input_id = 2
 output_id = 8
-rightgain = 0.9984  % Only this parameter was updated by the function
+gain_R = 0.9984  % Only this parameter was updated by the function
 ```
 
 ### Identify the ADC and DAC device
