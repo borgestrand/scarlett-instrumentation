@@ -86,7 +86,7 @@ Example:
 ```
 
 ### Calibrate
-Guides and helps you adjust three gain knobs to normalize DAC, ADC and analog voltages according to sc_init() parameters. The function will update a gain parameter to be applied to the right DAC output to give it the same gain as the left channel.
+Guides and helps you adjust three gain knobs to normalize DAC, ADC and analog voltages according to sc_init() parameters. The function will update a gain parameter to be applied to the right DAC output to give it the same gain as the left channel. The same-ness is limited to your ability to precisely turn knobs!
 ```
 defaults = sc_calibrate(defaults);
 ```
