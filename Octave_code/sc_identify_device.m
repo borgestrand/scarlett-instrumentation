@@ -1,4 +1,11 @@
 ﻿% Identify ADC and DAC device in Octave
+% Usage: [input_id, output_id] = sc_identify_device("2i2");
+% input_id = returned id of input device for use with Octave audio subsystem
+% output_id = returned id of output device for use with Octave audio subsystem
+% name = "2i2" to search for Focusrite Scarlett 2i2 device
+%
+% Worked on Win10 / Octave 8.3.0, some failures have been seein on Win11 / Octave 8.3.0
+
 % Copyright (C) 2023 Børge Strand-Bergesen
 %
 % This program is free software: you can redistribute it and/or modify
@@ -15,12 +22,6 @@
 % along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 function [input_id, output_id] = sc_identify_device(name)
-  % input_id = returned id of input device for use with Octave audio subsystem
-  % output_id = returned id of output device for use with Octave audio subsystem
-  % name = "2i2" to search for Focusrite Scarlett 2i2 device
-  %
-  % Worked on Win10 / Octave 8.3.0, doesn't work yet on Win11 / Octave 8.3.0...player
-  
   n_input = audiodevinfo(1)/2; % How many input devices are there?
   n_output = audiodevinfo(0)/2; % How many output devices are there?
  

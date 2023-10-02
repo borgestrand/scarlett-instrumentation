@@ -55,7 +55,27 @@ This project uses the programming language GNU Octave. Please use the following 
 
 ## Functions
 
+### Initiate
+```
+defaults = sc_init(fs, resolution, dac_util, adc_util);
+```
+defaults = initiates global variable
+
+fs = sample rate, typically 96000. You may have to set this in the OS as well
+
+resolution = bith depth in ADC and DAC, typically 24. May not always perform at 24 bits in Win11
+
+dac_util = DAC utilization. Must be less than 1. Suggested level = 0.9
+
+adc_util = ADC utilization. Likely 0.5 triggers transition from green to orange light. Suggested: 0.45
+
+Example:
+```
+sc_defaults = sc_init(96000, 24, 0.9, 0.45);
+```
+
 ### Identify the ADC and DAC device
+Typically only called by sc_init()
 ```
 [input_id, output_id] = sc_identify_device(name);
 ```
@@ -65,7 +85,7 @@ output_id = returned id of output device for use with Octave audio subsystem
 
 name = "2i2" to search for Focusrite Scarlett 2i2 device
 
-Status: Worked on Win10 / Octave 8.3.0, on Win11, returned output_id is off
+Status: Worked on Win10 / Octave 8.3.0, on Win11, returned output_id was off in one test
 
 Example:
 ```
@@ -74,15 +94,12 @@ input_id = 1
 output_id = 8
 ```
 
-### Play two sine waves
+### Play two sine waves without calibration
+Amplitude is relative to DAC full-scale, not to calibrated analog levels.
 ```
-sc_sine_generator(output_id, fs, resolution, freq_L, amplitude_L, freq_R, amplitude_R, duration)
+sc_sine_generator(defaults, freq_L, amplitude_L, freq_R, amplitude_R, duration)
 ```
-output_id = id of output device for use with Octave audio subsystem
-
-fs = sample rate in Hz, typically 96000. You may need to set this manually in your OS as well
-
-resolution = resolutin in bits. Use 24. ou may need to set this manually in your OS as well
+defaults = global configuration variable
 
 freq_L = the frequency in Hz to be used in the Left output channel, [0, fs/2)
 
@@ -98,7 +115,7 @@ Status: Works on Win11 / Octave 8.3.0 with manually set output_id
 
 Example:
 ```
-sc_sine_generator(6, 96000, 24, 1000, 0.5, 500, 0.8, 5);
+sc_sine_generator(sc_defaults, 1000, 0.5, 500, 0.8, 5);
 ```
 
  
