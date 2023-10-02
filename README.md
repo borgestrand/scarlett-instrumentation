@@ -14,12 +14,18 @@ Both code and PCBs are under GPL-3.0. If you contribute PCBs, include as the ver
 Initial code is written in [GNU Octave](https://octave.org) 8.3.0 running on Windows 11. It is already up and running! 
 
 ### Known bugs:
-- Win10 / Octave 8.3.0: ADC input is truncated to 16 bits of resolution, not the desired 24. Not yet tested on Win11
-- Device identification worked on Win10 / Octave 8.3.0. It is a bit off on Win11 and needs manual override for now
+- Win10 / Octave 8.3.0: ADC input is truncated to 16 bits of resolution, not the desired 24. Not yet tested on Win11.
+- Device identification worked on Win10 / Octave 8.3.0. It has been buggy on Win11 with need for manual override.
+  Run sc_calibrate() as a starting point. See if calibration output appears in the wrong output or if clibration 
+  input responds to the wrong microphone input. You may also have to probe around a bit in Win11 Sound settings
+  before sc_calibrate() responds as it should.
+- Microphone appears as 1 channel, not 2. Try closing Octave, reconnecting Scarlett 2i2, disabling it as default device.
 
 ### Windows setup
+Disable the Scarlett 2i2 as a default device. We want it controlled by Octave to the greatest extent possible.
 - Sound Settings -> Output -> Scarlett 2i2 USB -> 2 channels, 24 bit, 96000 kHz, Volume = 100
 - Sound Settings -> Input -> Scarlett 2i2 USB -> 2 channels, 24 bit, 96000 Hz, Volume = 54 (= 0dB in Windows)
+- Sound Settings -> Input -> Scarlett 2i2 USB -> Not used as a default
 
 ### Other OS / instrument / version combinations
 Feel free to add notes about other verified software combinations
@@ -57,7 +63,7 @@ This project uses the programming language GNU Octave. Please use the following 
 
 ### Initiate
 ```
-defaults = sc_init(fs, resolution, dac_util, adc_util);
+defaults = sc_init(fs, resolution, dac_util, dac_vrms, adc_util, adc_vrms);
 ```
 defaults = initiates global variable
 
@@ -67,11 +73,15 @@ resolution = bith depth in ADC and DAC, typically 24. May not always perform at 
 
 dac_util = DAC utilization. Must be less than 1. Suggested level = 0.9
 
+dac_vrms = Differential normalized RMS voltage of DAC section. Influences gain control. Suggested 2.0
+
 adc_util = ADC utilization. Likely 0.5 triggers transition from green to orange light. Suggested: 0.45
+
+adc_vrms = Differential normalized RMS voltage of ADC section. Influences gain control. Suggested 2.0
 
 Example:
 ```
-sc_defaults = sc_init(96000, 24, 0.9, 0.45);
+sc_defaults = sc_init(96000, 24, 0.9, 2, 0.45, 2);
 ```
 
 ### Identify the ADC and DAC device
@@ -97,7 +107,7 @@ output_id = 8
 ### Play two sine waves without calibration
 Amplitude is relative to DAC full-scale, not to calibrated analog levels.
 ```
-sc_sine_generator(defaults, freq_L, amplitude_L, freq_R, amplitude_R, duration)
+sc_sine_generator(defaults, freq_L, amplitude_L, freq_R, amplitude_R, duration);
 ```
 defaults = global configuration variable
 
